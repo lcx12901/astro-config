@@ -10,7 +10,21 @@ return {
     opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
       "lua",
       "vim",
-      -- add more arguments for adding more treesitter parsers
+      -- frontend language
+      "css",
+      "scss",
+      -- operation & cloud native
+      "dockerfile",
+      "jsonnet",
+      "regex",
+      "nix",
+      "csv",
+      -- other programming language
+      "diff",
+      "gitignore",
+      "gitcommit",
+      "latex",
+      "sql",
     })
   end,
 }
