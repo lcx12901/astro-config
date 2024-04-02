@@ -13,6 +13,9 @@ return {
       -- frontend language
       "css",
       "scss",
+      "typescript",
+      "javascript",
+      "vue",
       -- operation & cloud native
       "dockerfile",
       "jsonnet",
