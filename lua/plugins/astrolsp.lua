@@ -39,15 +39,32 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       ---- Frontend & NodeJS
-      "tsserver",       -- typescript/javascript language server
-      "html",           -- html language server
-      "cssls",          -- css language server
-      "prismals",       -- prisma language server
-      "volar",          -- vue language server
+      -- "tsserver", -- typescript/javascript language server
+      "html", -- html language server
+      "cssls", -- css language server
+      "prismals", -- prisma language server
+      "volar", -- vue language server
+      "eslint",
+      ---- Backend
+      "lua_ls", -- lua
+      "nil_ls", -- nix language server
+      "bufls", -- protocol buffer language server
+      ---- Operation & Cloud Nativeutiondente
+      "bashls", -- bash
+      "dockerls", -- dockerfile
+      "jsonnet_ls", -- jsonnet language server
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
+      eslint = {
+        root_dir = require("lspconfig.util").root_pattern(
+          "package.json",
+          ".eslintrc.json",
+          ".eslintrc.js",
+          "eslint.config.js"
+        ),
+      },
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
     },
     -- customize how language servers are attached
