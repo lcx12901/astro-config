@@ -1,5 +1,4 @@
--- You can also add or configure plugins by creating files in this `plugins/` folder
--- Here are some examples:
+local overrides = require("configs.overrides")
 
 ---@type LazySpec
 return {
@@ -80,4 +79,24 @@ return {
       )
     end,
   },
+  {
+    "nvim-tree/nvim-web-devicons",
+    opts = overrides.devicons,
+  },
+  {
+    "NvChad/nvim-colorizer.lua",
+    opts = overrides.colorizer,
+  },
+  {
+    "onsails/lspkind.nvim",
+    opts = {
+      mode = 'symbol_text',
+      maxwidth = 50,
+      ellipsis_char = '...',
+      show_labelDetails = true,
+      symbol_map = {
+        Codeium = "",
+      }
+    },
+  }
 }

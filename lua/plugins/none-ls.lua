@@ -23,8 +23,6 @@ return {
       null_ls.builtins.diagnostics.deadnix,
       -- Formatting
       null_ls.builtins.formatting.stylua,
-      -- null_ls.builtins.formatting.eslint,
-      null_ls.builtins.formatting.stylua,
       null_ls.builtins.formatting.alejandra,
     }
     return config -- return final config table

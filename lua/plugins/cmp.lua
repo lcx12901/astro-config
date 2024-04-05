@@ -1,17 +1,10 @@
 local list_contains = vim.list_contains or vim.tbl_contains
-pcall(function()
-  dofile(vim.g.base46_cache .. "cmp")
-end)
 
 local function deprioritize_snippet(entry1, entry2)
   local types = require "cmp.types"
 
-  if entry1:get_kind() == types.lsp.CompletionItemKind.Snippet then
-    return false
-  end
-  if entry2:get_kind() == types.lsp.CompletionItemKind.Snippet then
-    return true
-  end
+  if entry1:get_kind() == types.lsp.CompletionItemKind.Snippet then return false end
+  if entry2:get_kind() == types.lsp.CompletionItemKind.Snippet then return true end
 end
 
 --- Select item next/prev, taking into account whether the cmp window is
@@ -71,14 +64,10 @@ end
 
 local function has_words_before()
   local buftype = vim.api.nvim_buf_get_option(0, "buftype")
-  if buftype == "prompt" then
-    return false
-  end
+  if buftype == "prompt" then return false end
 
   local _, col = unpack(vim.api.nvim_win_get_cursor(0))
-  if col == 0 then
-    return false
-  end
+  if col == 0 then return false end
 
   local line = vim.api.nvim_buf_get_lines(0, line - 1, line - 1, true)[1]
   return not line:match "^%s*$"
@@ -101,9 +90,7 @@ local buffer_option = {
     for _, win in ipairs(vim.api.nvim_list_wins()) do
       local buf = vim.api.nvim_win_get_buf(win)
       local byte_size = vim.api.nvim_buf_get_offset(buf, vim.api.nvim_buf_line_count(buf))
-      if byte_size <= buf_size_limit then
-        bufs[buf] = true
-      end
+      if byte_size <= buf_size_limit then bufs[buf] = true end
     end
     return vim.tbl_keys(bufs)
   end,
@@ -111,9 +98,7 @@ local buffer_option = {
 
 local is_dap_buffer = function(bufnr)
   local filetype = vim.api.nvim_get_option_value("filetype", { buf = bufnr or 0 })
-  if filetype == "dap-repl" or vim.startswith(filetype, "dapui_") then
-    return true
-  end
+  if filetype == "dap-repl" or vim.startswith(filetype, "dapui_") then return true end
   return false
 end
 
@@ -128,7 +113,6 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp-document-symbol",
     "ray-x/cmp-treesitter",
-    "rcarriga/cmp-dap",
     { "jcdickinson/codeium.nvim", config = true },
   },
   opts = {
@@ -141,11 +125,9 @@ return {
       disabled = disabled or (require("cmp.config.context").in_treesitter_capture "comment" == true)
       disabled = disabled or (require("cmp.config.context").in_syntax_group "Comment" == true)
       disabled = disabled or (vim.api.nvim_get_mode().mode == "c")
-  
-      if disabled then
-        return not disabled
-      end
-  
+
+      if disabled then return not disabled end
+
       return true
     end,
     window = {
@@ -157,8 +139,8 @@ return {
     },
     view = {
       entries = {
-        follow_cursor = true
-      }
+        follow_cursor = true,
+      },
     },
     completion = {
       completeopt = "menu,menuone,noinsert,noselect",
@@ -235,15 +217,16 @@ return {
       max_view_entries = 10,
       fetching_timeout = 250,
     },
+    formatting = {
+      fields = {"abbr", "kind", "menu"},
+    },
     snippet = {
-      expand = function(args)
-        require("luasnip").lsp_expand(args.body)
-      end,
+      expand = function(args) require("luasnip").lsp_expand(args.body) end,
     },
     sources = {
       {
         name = "codeium",
-        max_item_count = 4,
+        max_item_count = 6,
       },
       {
         name = "nvim_lsp",
@@ -257,7 +240,21 @@ return {
       { name = "treesitter" },
       { name = "nvim_lsp_document_symbol" },
       { name = "luasnip", max_item_count = 2 },
-      { name = "luasnip", max_item_count = 2 },
+    },
+    sorting = {
+      priority_weight = 2,
+      comparators = {
+        deprioritize_snippet,
+        require("cmp").config.compare.exact,
+        require("cmp").config.compare.locality,
+        require("cmp").config.compare.recently_used,
+        under,
+        require("cmp").config.compare.score,
+        require("cmp").config.compare.kind,
+        require("cmp").config.compare.length,
+        require("cmp").config.compare.order,
+        require("cmp").config.compare.sort_text,
+      },
     },
   },
 }
