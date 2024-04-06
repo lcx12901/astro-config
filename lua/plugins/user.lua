@@ -1,4 +1,4 @@
-local overrides = require("configs.overrides")
+local overrides = require "configs.overrides"
 
 ---@type LazySpec
 return {
@@ -35,7 +35,6 @@ return {
       return opts
     end,
   },
-
   -- You can disable default plugins as follows:
   { "max397574/better-escape.nvim", enabled = false },
 
@@ -90,13 +89,27 @@ return {
   {
     "onsails/lspkind.nvim",
     opts = {
-      mode = 'symbol_text',
+      mode = "symbol_text",
       maxwidth = 50,
-      ellipsis_char = '...',
+      ellipsis_char = "...",
       show_labelDetails = true,
       symbol_map = {
         Codeium = "",
-      }
+      },
     },
-  }
+  },
+  {
+    "f-person/git-blame.nvim",
+    config = function()
+      require("gitblame").setup {
+        message_when_not_committed = "You has not committed yet !",
+        highlight_group = "Question",
+        delay = 100,
+      }
+    end,
+  },
+  {
+    "Wansmer/treesj",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+  },
 }
