@@ -23,4 +23,10 @@ return {
   { import = "astrocommunity.pack.docker" },
   -- colorscheme
   { import = "astrocommunity.colorscheme.catppuccin" },
+
+  { import = "astrocommunity.editing-support.neogen" },
+  { import = "astrocommunity.editing-support.todo-comments-nvim" },
+
+  { import = "astrocommunity.git.git-blame-nvim" },
+  { import = "astrocommunity.scrolling.vim-smoothie" },
 }

@@ -66,6 +66,21 @@ return {
           "eslint.config.js"
         ),
       },
+      -- vue文件无法使用ts文件导出，暂时的解决方案
+      -- https://github.com/williamboman/mason-lspconfig.nvim/issues/371#issuecomment-2018863753
+      volar = {
+        filetypes = {
+          "javascript",
+          "typescript",
+          "typescriptreact",
+          "typescript.tsx",
+          "javascriptreact",
+          "vue",
+        },
+        init_options = {
+          hybridMode = true,
+        },
+      },
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
     },
     -- customize how language servers are attached

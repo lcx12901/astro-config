@@ -99,16 +99,6 @@ return {
     },
   },
   {
-    "f-person/git-blame.nvim",
-    config = function()
-      require("gitblame").setup {
-        message_when_not_committed = "You has not committed yet !",
-        highlight_group = "Question",
-        delay = 100,
-      }
-    end,
-  },
-  {
     "Wansmer/treesj",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
   },
