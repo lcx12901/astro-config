@@ -26,7 +26,16 @@ return {
 
   { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.editing-support.todo-comments-nvim" },
+  { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
 
   { import = "astrocommunity.git.git-blame-nvim" },
-  { import = "astrocommunity.scrolling.vim-smoothie" },
+  -- { import = "astrocommunity.scrolling.mini-animate" },
+  { import = "astrocommunity.diagnostics.trouble-nvim" },
+
+  -- motion
+  { import = "astrocommunity.motion.mini-move" }, -- 视图模式，选中任意移动
+  { import = "astrocommunity.motion.nvim-surround" },
+  { import = "astrocommunity.motion.flash-nvim" },
+
+  { import = "astrocommunity.scrolling.neoscroll-nvim" },
 }

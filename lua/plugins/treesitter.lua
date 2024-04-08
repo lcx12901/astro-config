@@ -14,17 +14,7 @@ return {
     "piersolenski/telescope-import.nvim",
     "RRethy/nvim-treesitter-textsubjects",
     "danymat/neogen",
-    {
-      "JoosepAlviste/nvim-ts-context-commentstring",
-      init = function()
-        vim.g.skip_ts_context_commentstring_module = true
-      end,
-      config = function()
-        require("ts_context_commentstring").setup {
-          enable_autocmd = false,
-        }
-      end,
-    },
+    { "JoosepAlviste/nvim-ts-context-commentstring", opts = { enable_autocmd = false } },
   },
   opts = function(_, opts)
     -- add more things to the ensure_installed table protecting against community packs modifying it
