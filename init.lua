@@ -17,3 +17,12 @@ end
 
 require "lazy_setup"
 require "polish"
+
+require("telescope").setup {
+  defaults = {
+    file_ignore_patterns = {
+      "node_modules",
+      "yarn.lock",
+    },
+  },
+}
