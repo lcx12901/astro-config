@@ -70,11 +70,11 @@ return {
       -- https://github.com/williamboman/mason-lspconfig.nvim/issues/371#issuecomment-2018863753
       volar = {
         filetypes = {
-          "javascript",
-          "typescript",
-          "typescriptreact",
-          "typescript.tsx",
-          "javascriptreact",
+          -- "javascript",
+          -- "typescript",
+          -- "typescriptreact",
+          -- "typescript.tsx",
+          -- "javascriptreact",
           "vue",
         },
         init_options = {
