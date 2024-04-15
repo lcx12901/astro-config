@@ -18,6 +18,7 @@ end
 require "lazy_setup"
 require "polish"
 
+-- 搜索时过滤 node_modules/* 文件，加快搜索速度
 require("telescope").setup {
   defaults = {
     file_ignore_patterns = {
