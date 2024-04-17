@@ -6,15 +6,18 @@ return {
   dependencies = {
     {
       "windwp/nvim-ts-autotag",
-      opts = { enable_close_on_slash = false },
+      opts = { enable = true },
     },
-    -- 注释工具包
     "filNaj/tree-setter",
     "echasnovski/mini.ai",
     "piersolenski/telescope-import.nvim",
     "RRethy/nvim-treesitter-textsubjects",
     "danymat/neogen",
-    { "JoosepAlviste/nvim-ts-context-commentstring", opts = { enable_autocmd = false } },
+    "Wansmer/treesj",
+    {
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      opts = { enable_autocmd = false },
+    },
   },
   opts = function(_, opts)
     -- add more things to the ensure_installed table protecting against community packs modifying it
