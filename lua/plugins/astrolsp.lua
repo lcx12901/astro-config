@@ -78,7 +78,12 @@ return {
           "vue",
         },
         init_options = {
-          hybridMode = true,
+          vue = {
+            hybridMode = false,
+          },
+          typescript = {
+            tsdk = vim.fn.getcwd() .. "node_modules/typescript/lib",
+          },
         },
       },
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },

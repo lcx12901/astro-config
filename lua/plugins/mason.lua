@@ -7,7 +7,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     -- overrides `require("mason-lspconfig").setup(...)`
     opts = function(_, opts)
-      opts.ensure_installed = nil
+      opts.ensure_installed = { "volar" }
       opts.automatic_installation = false
     end,
   },
