@@ -18,6 +18,7 @@ return {
       "JoosepAlviste/nvim-ts-context-commentstring",
       opts = { enable_autocmd = false },
     },
+    { "nvim-treesitter/nvim-treesitter-context" },
   },
   opts = function(_, opts)
     -- add more things to the ensure_installed table protecting against community packs modifying it
