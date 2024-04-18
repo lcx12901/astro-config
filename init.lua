@@ -25,7 +25,9 @@ require("telescope").setup {
       "node_modules",
       "yarn.lock",
       "dist",
-      "src/assets",
+      "assets",
+      ".git",
+      "stats.html",
     },
   },
 }
