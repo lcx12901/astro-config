@@ -19,6 +19,16 @@ return {
       opts = { enable_autocmd = false },
     },
     { "nvim-treesitter/nvim-treesitter-context" },
+    {
+      "lukas-reineke/indent-blankline.nvim",
+      opts = function(_, opts)
+        -- Other blankline configuration here
+        return require("indent-rainbowline").make_opts(opts)
+      end,
+      dependencies = {
+        "TheGLander/indent-rainbowline.nvim",
+      },
+    },
   },
   opts = function(_, opts)
     -- add more things to the ensure_installed table protecting against community packs modifying it
