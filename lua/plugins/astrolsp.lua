@@ -1,8 +1,3 @@
--- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
--- Configuration documentation can be found with `:h astrolsp`
--- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
---       as this provides autocomplete and documentation while editing
-
 ---@type LazySpec
 return {
   "AstroNvim/astrolsp",
@@ -29,7 +24,8 @@ return {
       },
       disabled = { -- disable formatting capabilities for the listed language servers
         -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
-        -- "lua_ls",
+        "lua_ls",
+        -- use eslint to format vue code
         "volar",
       },
       timeout_ms = 6000, -- default format timeout
@@ -66,15 +62,8 @@ return {
           "eslint.config.js"
         ),
       },
-      -- vue文件无法使用ts文件导出，暂时的解决方案
-      -- https://github.com/williamboman/mason-lspconfig.nvim/issues/371#issuecomment-2018863753
       volar = {
         filetypes = {
-          -- "javascript",
-          -- "typescript",
-          -- "typescriptreact",
-          -- "typescript.tsx",
-          -- "javascriptreact",
           "vue",
         },
         init_options = {
@@ -86,7 +75,6 @@ return {
           },
         },
       },
-      -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
     },
     -- customize how language servers are attached
     handlers = {
