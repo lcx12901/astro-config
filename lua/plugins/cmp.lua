@@ -218,7 +218,7 @@ return {
       fetching_timeout = 250,
     },
     formatting = {
-      fields = {"abbr", "kind", "menu"},
+      fields = { "abbr", "kind", "menu" },
     },
     snippet = {
       expand = function(args) require("luasnip").lsp_expand(args.body) end,
