@@ -37,6 +37,6 @@ return {
   { import = "astrocommunity.motion.nvim-surround" },
   { import = "astrocommunity.motion.flash-nvim" },
 
-  { import = "astrocommunity.scrolling.neoscroll-nvim" },
+  { import = "astrocommunity.scrolling.mini-animate" },
   { import = "astrocommunity.recipes.neovide" },
 }
