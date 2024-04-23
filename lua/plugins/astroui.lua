@@ -17,7 +17,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     opts = function(_, opts)
-      opts.flavour = "mocha" -- latte, frappe, macchiato, mocha
+      opts.flavour = "frappe" -- latte, frappe, macchiato, mocha
       -- opts.transparent_background = true -- setting the background color.
       opts.term_colors = true
     end,
