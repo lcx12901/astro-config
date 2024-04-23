@@ -36,7 +36,6 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       ---- Frontend & NodeJS
-      -- "tsserver", -- typescript/javascript language server
       "html", -- html language server
       "cssls", -- css language server
       "prismals", -- prisma language server
@@ -64,6 +63,8 @@ return {
       },
       volar = {
         filetypes = {
+          "javascript",
+          "typescript",
           "vue",
         },
         init_options = {
@@ -73,6 +74,11 @@ return {
           typescript = {
             tsdk = vim.fn.getcwd() .. "node_modules/typescript/lib",
           },
+        },
+      },
+      ["typescript-tools"] = {
+        settings = {
+          tsserver_locale = "zh-CN",
         },
       },
     },
