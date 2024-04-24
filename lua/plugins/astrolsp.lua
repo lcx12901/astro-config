@@ -26,7 +26,7 @@ return {
         -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
         "lua_ls",
         -- use eslint to format vue code
-        "volar",
+        -- "volar",
       },
       timeout_ms = 6000, -- default format timeout
       -- filter = function(client) -- fully override the default formatting function
@@ -36,10 +36,10 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       ---- Frontend & NodeJS
-      "html", -- html language server
+      -- "emmet_ls", -- html language server
       "cssls", -- css language server
       "prismals", -- prisma language server
-      "volar", -- vue language server
+      -- "volar", -- vue language server
       "eslint",
       ---- Backend
       "lua_ls", -- lua
@@ -61,24 +61,38 @@ return {
           "eslint.config.js"
         ),
       },
-      volar = {
+      -- volar = {
+      --   filetypes = {
+      -- "javascript",
+      -- "typescript",
+      --   "vue",
+      -- },
+      -- init_options = {
+      --   vue = {
+      --     hybridMode = false,
+      --   },
+      -- typescript = {
+      --   tsdk = vim.fn.getcwd() .. "node_modules/typescript/lib",
+      -- },
+      -- },
+      -- },
+      ["typescript-tools"] = {
         filetypes = {
-          "javascript",
           "typescript",
+          "typescriptreact",
+          "typescript.tsx",
+          "javascript",
+          "javascriptreact",
+          "javascript.jsx",
           "vue",
         },
-        init_options = {
-          vue = {
-            hybridMode = false,
-          },
-          typescript = {
-            tsdk = vim.fn.getcwd() .. "node_modules/typescript/lib",
-          },
-        },
-      },
-      ["typescript-tools"] = {
         settings = {
+          publish_diagnostic_on = "change",
           tsserver_locale = "zh-CN",
+          tsserver_plugins = {
+            -- Seemingly this is enough, no name, location or languages needed.
+            "@vue/typescript-plugin",
+          },
         },
       },
     },
@@ -135,9 +149,9 @@ return {
     },
     -- A custom `on_attach` function to be run after the default `on_attach` function
     -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
-    -- on_attach = function(client, bufnr)
-    -- this would disable semanticTokensProvider for all clients
-    -- client.server_capabilities.semanticTokensProvider = nil
-    -- end,
+    on_attach = function(client)
+      -- this would disable semanticTokensProvider for all clients
+      client.server_capabilities.semanticTokensProvider = nil
+    end,
   },
 }
