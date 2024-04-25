@@ -26,7 +26,7 @@ return {
         -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
         "lua_ls",
         -- use eslint to format vue code
-        -- "volar",
+        "volar",
       },
       timeout_ms = 6000, -- default format timeout
       -- filter = function(client) -- fully override the default formatting function
@@ -36,6 +36,7 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       ---- Frontend & NodeJS
+      -- "tsserver",
       -- "emmet_ls", -- html language server
       "cssls", -- css language server
       "prismals", -- prisma language server
@@ -61,21 +62,21 @@ return {
           "eslint.config.js"
         ),
       },
-      -- volar = {
-      --   filetypes = {
-      -- "javascript",
-      -- "typescript",
-      --   "vue",
-      -- },
-      -- init_options = {
-      --   vue = {
-      --     hybridMode = false,
-      --   },
-      -- typescript = {
-      --   tsdk = vim.fn.getcwd() .. "node_modules/typescript/lib",
-      -- },
-      -- },
-      -- },
+      volar = {
+        filetypes = {
+          -- "javascript",
+          -- "typescript",
+          "vue",
+        },
+        init_options = {
+          vue = {
+            hybridMode = true,
+          },
+          -- typescript = {
+          --   tsdk = vim.fn.getcwd() .. "node_modules/typescript/lib",
+          -- },
+        },
+      },
       ["typescript-tools"] = {
         filetypes = {
           "typescript",
