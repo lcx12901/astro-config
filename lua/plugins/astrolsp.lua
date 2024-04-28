@@ -64,36 +64,36 @@ return {
       },
       volar = {
         filetypes = {
-          -- "javascript",
-          -- "typescript",
+          "javascript",
+          "typescript",
           "vue",
         },
         init_options = {
           vue = {
-            hybridMode = true,
+            hybridMode = false,
           },
-          -- typescript = {
-          --   tsdk = vim.fn.getcwd() .. "node_modules/typescript/lib",
-          -- },
+          typescript = {
+            tsdk = vim.fn.getcwd() .. "node_modules/typescript/lib",
+          },
         },
       },
       ["typescript-tools"] = {
-        filetypes = {
-          "typescript",
-          "typescriptreact",
-          "typescript.tsx",
-          "javascript",
-          "javascriptreact",
-          "javascript.jsx",
-          "vue",
-        },
+        -- filetypes = {
+        --   "typescript",
+        --   "typescriptreact",
+        --   "typescript.tsx",
+        --   "javascript",
+        --   "javascriptreact",
+        --   "javascript.jsx",
+        --   "vue",
+        -- },
         settings = {
           publish_diagnostic_on = "change",
           tsserver_locale = "zh-CN",
-          tsserver_plugins = {
-            -- Seemingly this is enough, no name, location or languages needed.
-            "@vue/typescript-plugin",
-          },
+          -- tsserver_plugins = {
+          -- Seemingly this is enough, no name, location or languages needed.
+          --   "@vue/typescript-plugin",
+          -- },
         },
       },
     },
