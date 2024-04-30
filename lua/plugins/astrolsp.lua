@@ -77,25 +77,25 @@ return {
           },
         },
       },
-      ["typescript-tools"] = {
-        -- filetypes = {
-        --   "typescript",
-        --   "typescriptreact",
-        --   "typescript.tsx",
-        --   "javascript",
-        --   "javascriptreact",
-        --   "javascript.jsx",
-        --   "vue",
-        -- },
-        settings = {
-          publish_diagnostic_on = "change",
-          tsserver_locale = "zh-CN",
-          -- tsserver_plugins = {
-          -- Seemingly this is enough, no name, location or languages needed.
-          --   "@vue/typescript-plugin",
-          -- },
-        },
-      },
+      -- ["typescript-tools"] = {
+      --   filetypes = {
+      --     "typescript",
+      --     "typescriptreact",
+      --     "typescript.tsx",
+      --     "javascript",
+      --     "javascriptreact",
+      --     "javascript.jsx",
+      --     "vue",
+      --   },
+      --   settings = {
+      --     publish_diagnostic_on = "change",
+      --     tsserver_locale = "zh-CN",
+      --     tsserver_plugins = {
+      --       -- Seemingly this is enough, no name, location or languages needed.
+      --       "@vue/typescript-plugin",
+      --     },
+      --   },
+      -- },
     },
     -- customize how language servers are attached
     handlers = {
